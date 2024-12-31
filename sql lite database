@@ -1,0 +1,13 @@
+from app import db, ScriptTemplate
+
+db.create_all()
+
+# Add some sample templates
+templates = [
+    ScriptTemplate(genre='action', theme='heroism', content='An action-packed scene with a hero saving the day.'),
+    ScriptTemplate(genre='comedy', theme='misunderstanding', content='A funny misunderstanding between two characters.'),
+    ScriptTemplate(genre='drama', theme='love', content='A dramatic love story unfolds.'),
+]
+
+db.session.bulk_save_objects(templates)
+db.session.commit()
